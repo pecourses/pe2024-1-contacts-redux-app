@@ -1,6 +1,7 @@
 .contactItem {
+  position: relative;
   padding: 1rem;
-  margin: 0.5rem;
+  margin: 1rem;
   box-shadow: 0 0 5px royalblue;
   border-radius: 0.5rem;
   transition: transform 0.2s ease-in-out;
@@ -8,4 +9,13 @@
 
 .contactItem:hover {
   transform: scale(1.05);
+}
+
+.favouriteBtn {
+  border: none;
+  background-color: transparent;
+  font-size: 2rem;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
 }

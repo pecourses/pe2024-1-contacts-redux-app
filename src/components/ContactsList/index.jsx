@@ -1,13 +1,16 @@
 import { connect } from "react-redux";
 import ContactsListItem from "./ContactsListItem";
+import { removeContact } from "../../store/slices/contactsSlice";
 
-function ContactsList({ contacts }) {
-  const mapContacts = c => <ContactsListItem key={c.id} contact={c} />;
+function ContactsList({ contacts, remove }) {
+  const mapContacts = c => (
+    <ContactsListItem key={c.id} contact={c} remove={remove} />
+  );
 
   return (
     <section>
       <h2>Contacts List</h2>
-      <ul>{contacts.map(mapContacts)}</ul>
+      <ul style={{ overflow: "hidden" }}>{contacts.map(mapContacts)}</ul>
     </section>
   );
 }
@@ -15,4 +18,8 @@ function ContactsList({ contacts }) {
 // const mapStateToProps = state => state.constactsList;
 const mapStateToProps = ({ contactsList }) => contactsList;
 
-export default connect(mapStateToProps)(ContactsList);
+const mapDispatchToProps = dispatch => ({
+  remove: id => dispatch(removeContact(id)), // id => payload
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContactsList);
