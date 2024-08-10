@@ -1,18 +1,18 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { v4 as uuidv4 } from "uuid";
+import { createSlice } from '@reduxjs/toolkit';
+import { v4 as uuidv4 } from 'uuid';
 
 const initialState = {
   contacts: [
     {
       id: uuidv4(),
-      fullName: "Test",
-      phoneNumber: "+380123456789",
+      fullName: 'Test',
+      phoneNumber: '+380123456789',
       isFavourite: true,
     },
     {
       id: uuidv4(),
-      fullName: "Ivo",
-      phoneNumber: "+380123456788",
+      fullName: 'Ivo',
+      phoneNumber: '+380123456788',
       isFavourite: false,
     },
   ],
@@ -20,7 +20,7 @@ const initialState = {
 
 const contactsSlice = createSlice({
   initialState,
-  name: "contacts",
+  name: 'contacts',
   reducers: {
     // id
     removeContact: (state, { payload }) => {

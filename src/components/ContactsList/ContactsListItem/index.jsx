@@ -1,8 +1,8 @@
-import { FaStar } from "react-icons/fa6";
-import { IoTrashOutline } from "react-icons/io5";
-import styles from "./ContactsListItem.module.css";
+import { FaStar } from 'react-icons/fa6';
+import { IoTrashOutline } from 'react-icons/io5';
+import styles from './ContactsListItem.module.css';
 
-function ContactsListItem({
+function ContactsListItem ({
   contact: { id, fullName, phoneNumber, isFavourite },
   remove,
   toggle,
@@ -15,7 +15,7 @@ function ContactsListItem({
         <a href={`tel:${phoneNumber}`}>{phoneNumber}</a>
       </p>
       <button className={styles.favouriteBtn} onClick={() => toggle(id)}>
-        <FaStar style={{ color: isFavourite ? "yellow" : "grey" }} />
+        <FaStar style={{ color: isFavourite ? 'yellow' : 'grey' }} />
       </button>
       <button onClick={() => remove(id)}>
         <IoTrashOutline />

@@ -1,12 +1,12 @@
-import { ErrorMessage, Field, Form, Formik } from "formik";
-import { connect } from "react-redux";
-import { CONTACTS_VALIDATION_SCHEMA } from "../../utils/validationsSchemas";
-import { createContact } from "../../store/slices/contactsSlice";
+import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { connect } from 'react-redux';
+import { CONTACTS_VALIDATION_SCHEMA } from '../../utils/validationsSchemas';
+import { createContact } from '../../store/slices/contactsSlice';
 
-function ContactsForm({ create }) {
+function ContactsForm ({ create }) {
   const initialValues = {
-    fullName: "",
-    phoneNumber: "",
+    fullName: '',
+    phoneNumber: '',
   };
 
   const submitHandler = (values, { resetForm }) => {
@@ -26,19 +26,19 @@ function ContactsForm({ create }) {
           <label>
             <span>Full name: </span>
             <Field
-              type="text"
-              name="fullName"
-              placeholder="Test Testovych"
+              type='text'
+              name='fullName'
+              placeholder='Test Testovych'
               autoFocus
             />
-            <ErrorMessage name="fullName" component="div" />
+            <ErrorMessage name='fullName' component='div' />
           </label>
           <label>
             <span>Full name: </span>
-            <Field type="tel" name="phoneNumber" placeholder="+380XXXXXXXXX" />
-            <ErrorMessage name="phoneNumber" component="div" />
+            <Field type='tel' name='phoneNumber' placeholder='+380XXXXXXXXX' />
+            <ErrorMessage name='phoneNumber' component='div' />
           </label>
-          <button type="submit">Add</button>
+          <button type='submit'>Add</button>
         </Form>
       </Formik>
     </section>

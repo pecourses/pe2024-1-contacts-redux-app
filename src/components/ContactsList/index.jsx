@@ -1,11 +1,11 @@
-import { connect } from "react-redux";
-import ContactsListItem from "./ContactsListItem";
+import { connect } from 'react-redux';
+import ContactsListItem from './ContactsListItem';
 import {
   removeContact,
   toggleFavourite,
-} from "../../store/slices/contactsSlice";
+} from '../../store/slices/contactsSlice';
 
-function ContactsList({ contacts, remove, toggle }) {
+function ContactsList ({ contacts, remove, toggle }) {
   const mapContacts = c => (
     <ContactsListItem key={c.id} contact={c} remove={remove} toggle={toggle} />
   );
@@ -13,7 +13,7 @@ function ContactsList({ contacts, remove, toggle }) {
   return (
     <section>
       <h2>Contacts List</h2>
-      <ul style={{ overflow: "hidden" }}>{contacts.map(mapContacts)}</ul>
+      <ul style={{ overflow: 'hidden' }}>{contacts.map(mapContacts)}</ul>
     </section>
   );
 }
