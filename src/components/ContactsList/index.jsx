@@ -1,10 +1,13 @@
 import { connect } from "react-redux";
 import ContactsListItem from "./ContactsListItem";
-import { removeContact } from "../../store/slices/contactsSlice";
+import {
+  removeContact,
+  toggleFavourite,
+} from "../../store/slices/contactsSlice";
 
-function ContactsList({ contacts, remove }) {
+function ContactsList({ contacts, remove, toggle }) {
   const mapContacts = c => (
-    <ContactsListItem key={c.id} contact={c} remove={remove} />
+    <ContactsListItem key={c.id} contact={c} remove={remove} toggle={toggle} />
   );
 
   return (
@@ -15,11 +18,11 @@ function ContactsList({ contacts, remove }) {
   );
 }
 
-// const mapStateToProps = state => state.constactsList;
 const mapStateToProps = ({ contactsList }) => contactsList;
 
 const mapDispatchToProps = dispatch => ({
   remove: id => dispatch(removeContact(id)), // id => payload
+  toggle: id => dispatch(toggleFavourite(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactsList);

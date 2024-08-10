@@ -30,11 +30,17 @@ const contactsSlice = createSlice({
         state.contacts.splice(foundContactIndex, 1);
       }
     },
+    toggleFavourite: (state, { payload }) => {
+      const foundContact = state.contacts.find(c => c.id === payload);
+      if (foundContact) {
+        foundContact.isFavourite = !foundContact.isFavourite;
+      }
+    },
   },
 });
 
 const { reducer, actions } = contactsSlice;
 
-export const { removeContact } = actions;
+export const { removeContact, toggleFavourite } = actions;
 
 export default reducer;

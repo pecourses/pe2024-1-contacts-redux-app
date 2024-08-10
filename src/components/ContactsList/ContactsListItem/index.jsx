@@ -5,6 +5,7 @@ import styles from "./ContactsListItem.module.css";
 function ContactsListItem({
   contact: { id, fullName, phoneNumber, isFavourite },
   remove,
+  toggle,
 }) {
   //! inline styles to classNames
   return (
@@ -13,7 +14,7 @@ function ContactsListItem({
       <p>
         <a href={`tel:${phoneNumber}`}>{phoneNumber}</a>
       </p>
-      <button className={styles.favouriteBtn}>
+      <button className={styles.favouriteBtn} onClick={() => toggle(id)}>
         <FaStar style={{ color: isFavourite ? "yellow" : "grey" }} />
       </button>
       <button onClick={() => remove(id)}>
@@ -24,3 +25,8 @@ function ContactsListItem({
 }
 
 export default ContactsListItem;
+// при натисканні на зірку міняти isFavourite на протилежне
+// reducer + actionCreator export
+// mapDispatchToProps
+// props to ContactsListItem
+// in ContactsListItem onClick
