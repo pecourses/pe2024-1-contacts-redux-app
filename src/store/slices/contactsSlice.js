@@ -36,11 +36,19 @@ const contactsSlice = createSlice({
         foundContact.isFavourite = !foundContact.isFavourite;
       }
     },
+    // values {fullName: "", phoneNumber: ""}
+    createContact: (state, { payload }) => {
+      state.contacts.push({
+        ...payload,
+        id: uuidv4(),
+        isFavourite: false,
+      });
+    },
   },
 });
 
 const { reducer, actions } = contactsSlice;
 
-export const { removeContact, toggleFavourite } = actions;
+export const { removeContact, toggleFavourite, createContact } = actions;
 
 export default reducer;

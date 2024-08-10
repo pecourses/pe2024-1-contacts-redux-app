@@ -1,14 +1,16 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
+import { connect } from "react-redux";
 import { CONTACTS_VALIDATION_SCHEMA } from "../../utils/validationsSchemas";
+import { createContact } from "../../store/slices/contactsSlice";
 
-function ContactsForm() {
+function ContactsForm({ create }) {
   const initialValues = {
     fullName: "",
     phoneNumber: "",
   };
 
   const submitHandler = (values, { resetForm }) => {
-    console.log(values);
+    create(values);
     resetForm();
   };
 
@@ -43,4 +45,8 @@ function ContactsForm() {
   );
 }
 
-export default ContactsForm;
+const mapDispatchToProps = dispatch => ({
+  create: values => dispatch(createContact(values)),
+});
+
+export default connect(null, mapDispatchToProps)(ContactsForm);
