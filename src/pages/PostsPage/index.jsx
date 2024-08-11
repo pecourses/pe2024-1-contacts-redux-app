@@ -1,7 +1,13 @@
+import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import styles from './PostsPage.module.css';
+import { getPostsThunk } from '../../store/slices/postsSlice';
 
-export const PostsPage = ({ posts, isFetching, error }) => {
+export const PostsPage = ({ posts, isFetching, error, get }) => {
+  useEffect(() => {
+    get();
+  }, []);
+
   const mapPosts = p => (
     <li className={styles.postItem} key={p.id}>
       <article>
@@ -23,6 +29,8 @@ export const PostsPage = ({ posts, isFetching, error }) => {
 
 const mapStateToProps = ({ postsList }) => postsList;
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = dispatch => ({
+  get: () => dispatch(getPostsThunk()),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostsPage);
