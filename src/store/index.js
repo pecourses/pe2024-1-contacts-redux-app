@@ -15,9 +15,9 @@ export default store;
 //   contactsList: {
 //     contacts: []
 //   },
-//   postsList: {
+//   postsList: ({
 //     posts: [],
 //     isFetching: false,
 //     error: null,
-//   },
+//   }),
 // },

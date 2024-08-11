@@ -1,0 +1,10 @@
+.postItem {
+  padding: 0.5rem;
+  background-color: #ccc;
+  color: darkmagenta;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
