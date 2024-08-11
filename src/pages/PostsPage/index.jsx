@@ -4,10 +4,15 @@ import styles from './PostsPage.module.css';
 import { getPostsThunk } from '../../store/slices/postsSlice';
 import { getUsersThunk } from '../../store/slices/usersSlice';
 
-export const PostsPage = ({ posts, isFetching, error, getPosts, getUsers }) => {
+export const PostsPage = ({
+  postsList: { posts, isFetching, error },
+  usersList: { users },
+  getPosts,
+  getUsers,
+}) => {
   useEffect(() => {
     getPosts();
-    getUsers();
+    // getUsers();
   }, []);
 
   const mapPosts = p => (
@@ -15,10 +20,11 @@ export const PostsPage = ({ posts, isFetching, error, getPosts, getUsers }) => {
       <article>
         <h2>{p.title}</h2>
         <p>{p.body}</p>
-        <p>Author: {p.userId}</p>
+        <p>Author: {users.find(u => u.id === p.userId)?.name || 'Unknown'}</p>
       </article>
     </li>
   );
+  // users.id === p.userId
   return (
     <div>
       <h1>Posts</h1>
@@ -29,7 +35,10 @@ export const PostsPage = ({ posts, isFetching, error, getPosts, getUsers }) => {
   );
 };
 
-const mapStateToProps = ({ postsList }) => postsList;
+const mapStateToProps = ({ postsList, usersList }) => ({
+  postsList,
+  usersList,
+});
 
 const mapDispatchToProps = dispatch => ({
   getPosts: () => dispatch(getPostsThunk()),
