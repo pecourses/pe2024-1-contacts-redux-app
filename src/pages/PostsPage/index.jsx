@@ -6,24 +6,28 @@ import { getUsersThunk } from '../../store/slices/usersSlice';
 
 export const PostsPage = ({
   postsList: { posts, isFetching, error },
-  usersList: { users },
+  usersList: { users, normalizedUsers },
   getPosts,
   getUsers,
 }) => {
   useEffect(() => {
     getPosts();
-    // getUsers();
+    getUsers();
   }, []);
 
-  const mapPosts = p => (
-    <li className={styles.postItem} key={p.id}>
-      <article>
-        <h2>{p.title}</h2>
-        <p>{p.body}</p>
-        <p>Author: {users.find(u => u.id === p.userId)?.name || 'Unknown'}</p>
-      </article>
-    </li>
-  );
+  const mapPosts = p => {
+    const postAuthor = normalizedUsers[p.userId]?.name || 'Unknown';
+
+    return (
+      <li className={styles.postItem} key={p.id}>
+        <article>
+          <h2>{p.title}</h2>
+          <p>{p.body}</p>
+          <p>Author: {postAuthor}</p>
+        </article>
+      </li>
+    );
+  };
   // users.id === p.userId
   return (
     <div>
