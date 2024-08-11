@@ -1,6 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import * as API from './../../api';
 
+const POSTS_SLICE_NAME = 'posts';
+
 const initialState = {
   posts: [],
   isFetching: false,
@@ -9,7 +11,7 @@ const initialState = {
 
 // action creator
 export const getPostsThunk = createAsyncThunk(
-  'posts/getPosts',
+  `${POSTS_SLICE_NAME}/getPosts`,
   async (payload, thunkAPI) => {
     try {
       const { data } = await API.getPosts();
@@ -22,7 +24,7 @@ export const getPostsThunk = createAsyncThunk(
 
 const postsSlice = createSlice({
   initialState,
-  name: 'posts',
+  name: POSTS_SLICE_NAME,
   reducers: {},
   extraReducers: builder => {
     builder.addCase(getPostsThunk.pending, state => {
