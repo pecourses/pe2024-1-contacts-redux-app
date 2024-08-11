@@ -1,6 +1,5 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import ContactsPage from './pages/ContactsPage';
-import Header from './components/Header';
 import Page from './pages/Page';
 
 function App () {
