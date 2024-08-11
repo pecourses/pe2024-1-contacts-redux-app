@@ -2,10 +2,12 @@ import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import styles from './PostsPage.module.css';
 import { getPostsThunk } from '../../store/slices/postsSlice';
+import { getUsersThunk } from '../../store/slices/usersSlice';
 
-export const PostsPage = ({ posts, isFetching, error, get }) => {
+export const PostsPage = ({ posts, isFetching, error, getPosts, getUsers }) => {
   useEffect(() => {
-    get();
+    getPosts();
+    getUsers();
   }, []);
 
   const mapPosts = p => (
@@ -30,7 +32,8 @@ export const PostsPage = ({ posts, isFetching, error, get }) => {
 const mapStateToProps = ({ postsList }) => postsList;
 
 const mapDispatchToProps = dispatch => ({
-  get: () => dispatch(getPostsThunk()),
+  getPosts: () => dispatch(getPostsThunk()),
+  getUsers: () => dispatch(getUsersThunk()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostsPage);

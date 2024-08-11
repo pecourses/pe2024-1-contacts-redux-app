@@ -6,6 +6,8 @@ const httpClient = axios.create({
 
 export const getPosts = () => httpClient.get('/posts');
 
+export const getUsers = () => httpClient.get('/users');
+
 // --------------------------------------------------
 // fetch('https://randomuser.me/api')
 //   .then(response => response.json())
