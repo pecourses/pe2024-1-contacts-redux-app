@@ -1,14 +1,21 @@
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import ContactsPage from './pages/ContactsPage';
+import Header from './components/Header';
+import Page from './pages/Page';
 
 function App () {
-  return <ContactsPage />;
+  return (
+    <Router>
+      <Routes>
+        <Route path='/' element={<Page />}>
+          <Route index element={<h1>Home Page</h1>} />
+          <Route path='/contacts' element={<ContactsPage />} />
+          {/* <Route path='/posts' element={<PostsPage />} /> */}
+          <Route path='*' element={<div>Not Found</div>} />
+        </Route>
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
-
-// ContactsPage
-//  - ContactsForm
-//  - ContactsList
-//  --- ContactsListItem
-//  --- ...
-//  --- ContactsListItem

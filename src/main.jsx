@@ -5,7 +5,7 @@ import './reset.css';
 import './index.css';
 import App from './App.jsx';
 import store from './store';
-import axios from 'axios';
+// import axios from 'axios';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -38,24 +38,24 @@ createRoot(document.getElementById('root')).render(
 // Promise {status: (pending |fulfilled | rejected), result:}
 // get, post, patch/put, delete
 
-const httpClient = axios.create({
-  baseURL: 'https://jsonplaceholder.typicode.com',
-});
+// const httpClient = axios.create({
+//   baseURL: 'https://jsonplaceholder.typicode.com',
+// });
 
-// 'https://jsonplaceholder.typicode.com/posts'
-try {
-  const response = await httpClient.get('/posts/100');
-  console.log(response.data);
-} catch (err) {
-  console.log(err);
-}
+// // 'https://jsonplaceholder.typicode.com/posts'
+// try {
+//   const response = await httpClient.get('/posts/100');
+//   console.log(response.data);
+// } catch (err) {
+//   console.log(err);
+// }
 
-httpClient
-  .get('/posts')
-  .then(response => console.log(response.data))
-  .catch(err => console.log(err));
+// httpClient
+//   .get('/posts')
+//   .then(response => console.log(response.data))
+//   .catch(err => console.log(err));
 
-httpClient
-  .get('/users')
-  .then(response => console.log(response.data))
-  .catch(err => console.log(err));
+// httpClient
+//   .get('/users')
+//   .then(response => console.log(response.data))
+//   .catch(err => console.log(err));

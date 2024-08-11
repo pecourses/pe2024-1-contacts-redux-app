@@ -1,0 +1,19 @@
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.pageMain {
+  max-width: 1200px;
+  width: 100%;
+  padding: 1rem;
+  margin: 0 auto;
+}
+
+.pageFooter {
+  background-color: #222;
+  color: deeppink;
+  padding: 2rem;
+  margin-top: auto;
+}
