@@ -1,6 +1,6 @@
 const CONSTANTS = {
   CONTACTS_FILTER_OPTIONS: [
-    { value: null, caption: 'All' },
+    { value: '', caption: 'All' },
     { value: true, caption: 'Favourite' },
     { value: false, caption: 'Not favourite' },
   ],

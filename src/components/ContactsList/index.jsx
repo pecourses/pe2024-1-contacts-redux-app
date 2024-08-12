@@ -4,6 +4,7 @@ import {
   removeContact,
   toggleFavourite,
 } from '../../store/slices/contactsSlice';
+import CONSTANTS from '../../constants';
 
 function ContactsList ({
   contacts,
@@ -16,7 +17,7 @@ function ContactsList ({
   );
 
   const filterByIsFavouriteContacts = c => {
-    if (isFavourite === null) {
+    if (isFavourite === CONSTANTS.CONTACTS_FILTER_OPTIONS[0].value) {
       return true;
     }
     return c.isFavourite === isFavourite;

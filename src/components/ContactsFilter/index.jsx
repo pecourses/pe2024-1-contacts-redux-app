@@ -12,7 +12,7 @@ function ContactsFilter ({ isFavourite, fullName, setFilter }) {
     setFilter({ fullName: value });
 
   const mapOptions = ({ value, caption }) => (
-    <label>
+    <label key={caption}>
       <input
         type='radio'
         value={value}
