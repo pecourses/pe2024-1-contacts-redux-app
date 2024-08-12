@@ -3,6 +3,9 @@ import { FaSortAlphaDown, FaSortAlphaDownAlt } from 'react-icons/fa';
 import styles from './ListOrderControls.module.css';
 import { connect } from 'react-redux';
 import { setOrder } from '../../../store/slices/contactsSlice';
+import CONSTANTS from '../../../constants';
+
+const { ASC, DESC } = CONSTANTS.ORDER;
 
 function ListOrderControls ({ byName, changeOrder }) {
   const caclClassNames = order =>
@@ -11,14 +14,14 @@ function ListOrderControls ({ byName, changeOrder }) {
   return (
     <div className={styles.orderControlsContainer}>
       <button
-        className={caclClassNames('ASC')}
-        onClick={() => changeOrder({ byName: 'ASC' })}
+        className={caclClassNames(ASC)}
+        onClick={() => changeOrder({ byName: ASC })}
       >
         <FaSortAlphaDown />
       </button>
       <button
-        className={caclClassNames('DESC')}
-        onClick={() => changeOrder({ byName: 'DESC' })}
+        className={caclClassNames(DESC)}
+        onClick={() => changeOrder({ byName: DESC })}
       >
         <FaSortAlphaDownAlt />
       </button>

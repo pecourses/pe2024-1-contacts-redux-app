@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import CONFIGS from '../../configs';
 
 const { IS_FAVOURITE, FULL_NAME } = CONFIGS.CONTACTS_FILTER_DEFAULT_VALUES;
+const { BY_NAME } = CONFIGS.CONTACTS_ORDER_DEFAULT_VALUE;
 
 const initialState = {
   contacts: [
@@ -24,7 +25,7 @@ const initialState = {
     fullName: FULL_NAME,
   },
   order: {
-    byName: 'ASC',
+    byName: BY_NAME,
   },
 };
 

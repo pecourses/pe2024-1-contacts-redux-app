@@ -12,7 +12,7 @@ function ContactsList ({
   remove,
   toggle,
   filter: { isFavourite, fullName },
-  order: { byName },
+  order: { byName: orderCoef },
 }) {
   const mapContacts = c => (
     <ContactsListItem key={c.id} contact={c} remove={remove} toggle={toggle} />
@@ -28,15 +28,7 @@ function ContactsList ({
   const filterByName = c =>
     c.fullName.toLowerCase().includes(fullName.toLowerCase());
 
-  const sortByName = (a, b) => {
-    const ORDER_COEF = { ASC: 1, DESC: -1 };
-
-    if (a.fullName > b.fullName) {
-      return ORDER_COEF[byName];
-    } else {
-      return -1 * ORDER_COEF[byName];
-    }
-  };
+  const sortByName = (a, b) => (a.fullName > b.fullName ? 1 : -1) * orderCoef;
 
   return (
     <section>
