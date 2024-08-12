@@ -1,6 +1,9 @@
 import { connect } from 'react-redux';
 import { setFilter } from '../../store/slices/contactsSlice';
 import styles from './ContactsFilter.module.css';
+import CONSTANTS from './../../constants';
+
+const { CONTACTS_FILTER_OPTIONS } = CONSTANTS;
 
 function ContactsFilter ({ isFavourite, fullName, setFilter }) {
   const changeFavouriteFilter = value => setFilter({ isFavourite: value });
@@ -8,40 +11,24 @@ function ContactsFilter ({ isFavourite, fullName, setFilter }) {
   const changeNameFilter = ({ target: { value } }) =>
     setFilter({ fullName: value });
 
+  const mapOptions = ({ value, caption }) => (
+    <label>
+      <input
+        type='radio'
+        value={value}
+        onChange={() => changeFavouriteFilter(value)}
+        checked={isFavourite === value}
+        name='isFavourite'
+      />
+      <span> {caption}</span>
+    </label>
+  );
+
   return (
     <div>
       <section className={styles.singleFilter}>
         <h2>Favourite</h2>
-        <label>
-          <input
-            type='radio'
-            value={null}
-            onChange={() => changeFavouriteFilter(null)}
-            checked={isFavourite === null}
-            name='isFavourite'
-          />
-          <span> All</span>
-        </label>
-        <label>
-          <input
-            type='radio'
-            value={true}
-            onChange={() => changeFavouriteFilter(true)}
-            checked={isFavourite === true}
-            name='isFavourite'
-          />
-          <span> Favourite</span>
-        </label>
-        <label>
-          <input
-            type='radio'
-            value={false}
-            onChange={() => changeFavouriteFilter(false)}
-            checked={isFavourite === false}
-            name='isFavourite'
-          />
-          <span> Not favourite</span>
-        </label>
+        {CONTACTS_FILTER_OPTIONS.map(mapOptions)}
       </section>
       <section className={styles.singleFilter}>
         <h2>Name</h2>

@@ -1,5 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { v4 as uuidv4 } from 'uuid';
+import CONFIGS from '../../configs';
+
+const { IS_FAVOURITE, FULL_NAME } = CONFIGS.CONTACTS_FILTER_DEFAULT_VALUES;
 
 const initialState = {
   contacts: [
@@ -17,8 +20,8 @@ const initialState = {
     },
   ],
   filter: {
-    isFavourite: null,
-    fullName: '',
+    isFavourite: IS_FAVOURITE,
+    fullName: FULL_NAME,
   },
 };
 
