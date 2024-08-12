@@ -11,6 +11,7 @@
   margin: 0 auto;
   background-color: lightpink;
   flex-grow: 1;
+  display: flex;
 }
 
 .pageFooter {

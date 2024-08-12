@@ -1,14 +1,14 @@
 .contactItem {
   position: relative;
   padding: 1rem;
-  margin: 1rem;
+  margin: 1rem 0;
   box-shadow: 0 0 5px royalblue;
   border-radius: 0.5rem;
   transition: transform 0.2s ease-in-out;
 }
 
 .contactItem:hover {
-  transform: scale(1.05);
+  transform: scale(1.01);
 }
 
 .favouriteBtn {

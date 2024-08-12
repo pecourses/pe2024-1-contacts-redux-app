@@ -27,3 +27,24 @@ h2 {
 h3 {
   font-size: 1.25rem;
 }
+
+h1,
+h2,
+h3 {
+  margin: 0.5em 0;
+}
+
+input {
+  padding: 0.5rem;
+  border-radius: 0.3125rem;
+  border: 1px solid pink;
+  outline: none;
+}
+
+input:hover {
+  border: 1px solid rosybrown;
+}
+
+input:focus {
+  box-shadow: 0 0 1px 1px royalblue;
+}
