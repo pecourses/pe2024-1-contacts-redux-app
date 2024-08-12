@@ -1,0 +1,27 @@
+.orderControlsContainer {
+  text-align: right;
+}
+
+.btn {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid royalblue;
+  cursor: pointer;
+  color: royalblue;
+  background-color: pink;
+}
+
+.btn:first-child {
+  border-top-left-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
+}
+
+.btn:last-child {
+  border-top-right-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+}
+
+.activeBtn {
+  color: pink;
+  background-color: royalblue;
+}

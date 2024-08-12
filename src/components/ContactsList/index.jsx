@@ -4,6 +4,7 @@ import {
   removeContact,
   toggleFavourite,
 } from '../../store/slices/contactsSlice';
+import ListOrderControls from './ListOrderControls';
 import CONSTANTS from '../../constants';
 
 function ContactsList ({
@@ -11,6 +12,7 @@ function ContactsList ({
   remove,
   toggle,
   filter: { isFavourite, fullName },
+  order: { byName },
 }) {
   const mapContacts = c => (
     <ContactsListItem key={c.id} contact={c} remove={remove} toggle={toggle} />
@@ -26,13 +28,25 @@ function ContactsList ({
   const filterByName = c =>
     c.fullName.toLowerCase().includes(fullName.toLowerCase());
 
+  const sortByName = (a, b) => {
+    const ORDER_COEF = { ASC: 1, DESC: -1 };
+
+    if (a.fullName > b.fullName) {
+      return ORDER_COEF[byName];
+    } else {
+      return -1 * ORDER_COEF[byName];
+    }
+  };
+
   return (
     <section>
       <h2>Contacts List</h2>
+      <ListOrderControls />
       <ul>
         {contacts
           .filter(filterByIsFavouriteContacts)
           .filter(filterByName)
+          .sort(sortByName)
           .map(mapContacts)}
       </ul>
     </section>
