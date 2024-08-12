@@ -1,0 +1,10 @@
+.singleFilter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.singleFilter + .singleFilter {
+  margin-top: 1rem;
+  border-top: 2px solid pink;
+}

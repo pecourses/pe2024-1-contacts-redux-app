@@ -16,6 +16,10 @@ const initialState = {
       isFavourite: false,
     },
   ],
+  filter: {
+    isFavourite: null,
+    fullName: '',
+  },
 };
 
 const contactsSlice = createSlice({
@@ -44,11 +48,15 @@ const contactsSlice = createSlice({
         isFavourite: false,
       });
     },
+    setFilter: (state, { payload }) => {
+      state.filter = { ...state.filter, ...payload };
+    },
   },
 });
 
 const { reducer, actions } = contactsSlice;
 
-export const { removeContact, toggleFavourite, createContact } = actions;
+export const { removeContact, toggleFavourite, createContact, setFilter } =
+  actions;
 
 export default reducer;

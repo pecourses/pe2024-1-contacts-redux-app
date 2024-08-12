@@ -1,0 +1,27 @@
+.pageContainer {
+  display: flex;
+  width: 100%;
+}
+
+.filterContainer {
+  width: 15rem;
+  padding: 1rem;
+  border-right: 2px solid pink;
+}
+
+.listContainer {
+  flex-grow: 1;
+  padding: 1rem;
+}
+
+@media screen and (max-width: 600px) {
+  .pageContainer {
+    flex-wrap: wrap;
+    align-content: start;
+  }
+  .filterContainer {
+    width: 100%;
+    border-right: none;
+    border-bottom: 2px solid pink;
+  }
+}

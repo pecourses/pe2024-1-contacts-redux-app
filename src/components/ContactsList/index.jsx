@@ -5,15 +5,35 @@ import {
   toggleFavourite,
 } from '../../store/slices/contactsSlice';
 
-function ContactsList ({ contacts, remove, toggle }) {
+function ContactsList ({
+  contacts,
+  remove,
+  toggle,
+  filter: { isFavourite, fullName },
+}) {
   const mapContacts = c => (
     <ContactsListItem key={c.id} contact={c} remove={remove} toggle={toggle} />
   );
 
+  const filterByIsFavouriteContacts = c => {
+    if (isFavourite === null) {
+      return true;
+    }
+    return c.isFavourite === isFavourite;
+  };
+
+  const filterByName = c =>
+    c.fullName.toLowerCase().includes(fullName.toLowerCase());
+
   return (
     <section>
       <h2>Contacts List</h2>
-      <ul style={{ overflow: 'hidden' }}>{contacts.map(mapContacts)}</ul>
+      <ul>
+        {contacts
+          .filter(filterByIsFavouriteContacts)
+          .filter(filterByName)
+          .map(mapContacts)}
+      </ul>
     </section>
   );
 }
